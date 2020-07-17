@@ -1,0 +1,27 @@
+version: "3"
+services:
+  ngx_front:
+    container_name: ngx_front
+    image: nginx:1.17.10
+    volumes:
+      - ./nginx:/usr/share/nginx/html
+      - ./nginx:/etc/nginx/conf.d
+    # environment:
+    #   VIRTUAL_HOST: 'bootcamp.example.com'
+    ports:
+      - "8080:80"
+  app1:
+    container_name: backends_8180
+    image: endlesspancake/bc-nginx-backends:v0.1
+    ports:
+      - "8180:8080"
+  app2:
+    container_name: backends_8280
+    image: endlesspancake/bc-nginx-backends:v0.2
+    ports:
+      - "8280:8080"
+  app3:
+    container_name: backends_8380
+    image: endlesspancake/bc-nginx-backends:v0.3
+    ports:
+      - "8380:8080"

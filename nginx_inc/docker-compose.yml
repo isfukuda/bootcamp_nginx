@@ -1,0 +1,13 @@
+version: "3"
+services:
+  ngx_front:
+    container_name: ngx_basic1
+    image: nginx:1.17.10
+    volumes:
+      - ./nginx:/usr/share/nginx/html
+      - ./nginx:/etc/nginx/conf.d
+    # environment:
+    #   VIRTUAL_HOST: 'bootcamp.example.com'
+    ports:
+      - "80:80"
+      - "443:443"

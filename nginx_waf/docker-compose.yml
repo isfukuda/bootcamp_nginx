@@ -1,0 +1,13 @@
+version: "3"
+services:
+  ngx_front:
+    container_name: ngx_waf
+    image: endlesspancake/nginx-waf:3.0.4-bc
+    volumes:
+      - ./nginx:/usr/share/nginx/html
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./src/etc/modsecurity.d:/etc/modsecurity.d
+    # environment:
+    #   VIRTUAL_HOST: 'bootcamp.example.com'
+    ports:
+      - "443:443"
